@@ -63,3 +63,7 @@ crashlytics-build.properties
 *.png
 *.fbx
 *.prefab
+*.pdf
+*.unity
+*.exr
+*.anim

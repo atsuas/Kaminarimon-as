@@ -68,3 +68,5 @@ crashlytics-build.properties
 *.exr
 *.anim
 *.asset
+*.terrainlayer
+*.wav

@@ -51,5 +51,11 @@ public class Character : MonoBehaviour
         //Animatorに反映
         animator.SetFloat(hashFront, velocity.z, 0.1f, Time.deltaTime);
         animator.SetFloat(hashSide, velocity.x, 0.1f, Time.deltaTime);
+
+        ////ジャンプ
+        //if (Input.GetKeyDown(KeyCode.V))
+        //{
+        //    animator.SetTrigger("Roll");
+        //}
     }
 }

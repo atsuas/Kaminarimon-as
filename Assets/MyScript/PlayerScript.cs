@@ -9,32 +9,17 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 5.0f; //移動する速度
     Animator ani;
 
-    private Rigidbody rb; //リジッドボディを取得するための変数
-    public float upForce = 200f; //上方向にかける力
-    private bool isGround; //着地しているかどうかの判定
-
     float degStop;
 
     void Start()
     {
         //Animatorを取得
         ani = this.gameObject.GetComponent<Animator>();
-        //リジッドボディを取得
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         Move();
-
-        if (isGround == true)//着地しているとき
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                isGround = false;//  isGroundをfalseにする
-                rb.AddForce(new Vector3(0, upForce, 0)); //上に向かって力を加える
-            }
-        }
     }
 
     void Move()
@@ -63,17 +48,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other) //地面に触れた時の処理
+    //ボタンを押したら攻撃する
+    public void AttackButton()
     {
-        if (other.gameObject.tag == "Ground") //Groundタグのオブジェクトに触れたとき
-        {
-            isGround = true; //isGroundをtrueにする
-        }
+        ani.SetTrigger("Attack");
     }
 
-    //ボタンを押したらジャンプする
-    public void OnClickButton()
+    //ボタンを押したらアイテムを掴む
+    public void PickupButton()
     {
-        ani.SetTrigger("Jump");
+        ani.SetTrigger("Pickup");
     }
+
+    
 }

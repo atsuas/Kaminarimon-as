@@ -9,17 +9,61 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 5.0f; //移動する速度
     Animator ani;
 
+    //private Ray ray;
+
+    //public Camera mainCamera;
+
     float degStop;
+
+    //public override void Visit(ItemAcceptor acceptor)
+    //{
+    //    acceptor.Accept(this);
+    //    ani.SetTrigger("Pickup");
+    //}
+
+    //public override void Visit(DoorAcceptor acceptor)
+    //{
+    //    acceptor.Accept(this);
+    //    Debug.Log("フィールドを移動する処理");
+    //}
+
+    //public override void Visit(ActorAcceptor acceptor)
+    //{
+    //    acceptor.Accept(this);
+    //    Debug.Log("会話モードへ移行する処理");
+    //}
 
     void Start()
     {
         //Animatorを取得
         ani = this.gameObject.GetComponent<Animator>();
+
+        //ray = new Ray();
     }
 
     void Update()
     {
         Move();
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
+
+        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        //    {
+        //        GameObject game = hit.collider.gameObject;
+
+        //        ItemAcceptor item = game.GetComponent<ItemAcceptor>();
+        //        if (item != null) Visit(item);
+
+        //        DoorAcceptor door = game.GetComponent<DoorAcceptor>();
+        //        if (door != null) Visit(door);
+
+        //        ActorAcceptor actor = game.GetComponent<ActorAcceptor>();
+        //        if (actor != null) Visit(actor);
+        //    }
+        //}
     }
 
     void Move()
@@ -59,6 +103,4 @@ public class PlayerScript : MonoBehaviour
     {
         ani.SetTrigger("Pickup");
     }
-
-    
 }

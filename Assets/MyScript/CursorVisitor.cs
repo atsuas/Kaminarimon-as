@@ -13,12 +13,6 @@ public class CursorVisitor : Visitor
         animator.SetTrigger("Pickup");
     }
 
-    public override void Visit(DoorAcceptor acceptor)
-    {
-        acceptor.Accept(this);
-        Debug.Log("フィールドを移動する処理");
-    }
-
     public override void Visit(ActorAcceptor acceptor)
     {
         acceptor.Accept(this);
@@ -45,9 +39,6 @@ public class CursorVisitor : Visitor
 
                 ItemAcceptor item = game.GetComponent<ItemAcceptor>();
                 if (item != null) Visit(item);
-
-                DoorAcceptor door = game.GetComponent<DoorAcceptor>();
-                if (door != null) Visit(door);
 
                 ActorAcceptor actor = game.GetComponent<ActorAcceptor>();
                 if (actor != null) Visit(actor);

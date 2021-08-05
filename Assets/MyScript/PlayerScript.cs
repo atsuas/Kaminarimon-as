@@ -15,8 +15,6 @@ public class PlayerScript : MonoBehaviour
     {
         //Animatorを取得
         ani = this.gameObject.GetComponent<Animator>();
-
-        //ray = new Ray();
     }
 
     void Update()

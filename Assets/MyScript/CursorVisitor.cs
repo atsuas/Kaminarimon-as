@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorVisitor : Visitor
 {
     private Ray ray;
     Animator animator;
+
+    public GameObject comment;
 
     public Camera mainCamera;
 
@@ -16,7 +19,8 @@ public class CursorVisitor : Visitor
     public override void Visit(ActorAcceptor acceptor)
     {
         acceptor.Accept(this);
-        Debug.Log("会話モードへ移行する処理");
+        //Debug.Log("会話モードへ移行する処理");
+        comment.SetActive(true);
     }
 
     void Start()
@@ -24,6 +28,9 @@ public class CursorVisitor : Visitor
         ray = new Ray();
 
         animator = GetComponent<Animator>();
+
+        comment = GameObject.Find("Comment");
+        comment.SetActive(false);
     }
 
     void Update()
